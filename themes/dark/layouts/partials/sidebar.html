@@ -1,0 +1,14 @@
+<h3>Recent Status</h3>
+<div id="statuscafe"><div id="statuscafe-username"></div><div id="statuscafe-content"></div></div><script src="https://status.cafe/current-status.js?name=rowingmyboat" defer></script>
+
+<h3>Recently Read</h3>
+<div class="recently-read">
+{{- range ( where site.RegularPages "Section" "books" | first 1 ) }}
+    {{ if (eq .Params.imageOn "true" ) }}
+    <a href="{{ .Permalink }}"><img src={{ .Params.smallImage }} alt=""></a><br />
+    {{ else }}
+    <a href="{{ .Permalink }}"><img src="//via.placeholder.com/250x150" alt=""></a>
+    {{ end }}
+{{ end }}
+</div>
+<p>...see more <a href="/books">books</a></p>
